@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Retro Rally — top-down oval racing for Mac and Windows. Tune your car, pick a chassis, race AI or friends on LAN." />
+  <title>Retro Rally — Download</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --grass: #122a20;
+      --grass-light: #1a3d30;
+      --dirt: #30241c;
+      --rim: #484e58;
+      --rim-light: #6a7480;
+      --line: #b9b294;
+      --text: #f0f0f0;
+      --muted: #a8b0b8;
+      --yellow: #f0d237;
+      --blue: #4682e6;
+      --red: #dc3232;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse 120% 80% at 50% -20%, #1e4a38 0%, transparent 55%),
+        radial-gradient(ellipse 90% 60% at 100% 100%, #2a2018 0%, transparent 50%),
+        var(--grass);
+    }
+
+    .track-ring {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.12;
+      background:
+        radial-gradient(ellipse 42% 28% at 50% 48%, transparent 58%, var(--rim-light) 59%, transparent 60%),
+        radial-gradient(ellipse 26% 16% at 50% 48%, var(--dirt) 0%, transparent 70%);
+    }
+
+    .wrap {
+      position: relative;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--grass);
+      background: var(--yellow);
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-family: Syne, sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.4rem, 8vw, 3.4rem);
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      margin-bottom: 12px;
+    }
+
+    .tagline {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 32em;
+      margin: 0 auto;
+    }
+
+    section {
+      background: rgba(24, 32, 28, 0.85);
+      border: 1px solid var(--rim);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(6px);
+    }
+
+    h2 {
+      font-family: Syne, sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--yellow);
+      margin-bottom: 14px;
+      letter-spacing: 0.04em;
+    }
+
+    ul.features {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    ul.features li::before {
+      content: "▸ ";
+      color: var(--blue);
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    a.btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 22px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 14px;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    a.btn:hover {
+      transform: translateY(-2px);
+    }
+
+    a.btn-primary {
+      background: linear-gradient(180deg, #5a9a4a 0%, #3d7040 100%);
+      color: #fff;
+      border: 2px solid #8fd080;
+      box-shadow: 0 4px 0 #2a4a30;
+    }
+
+    a.btn-primary:hover {
+      box-shadow: 0 6px 0 #2a4a30;
+    }
+
+    a.btn-secondary {
+      background: var(--rim);
+      color: var(--text);
+      border: 2px solid var(--rim-light);
+    }
+
+    .note {
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .note code,
+    pre {
+      font-size: 12px;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      display: block;
+      padding: 14px 16px;
+      margin-top: 12px;
+      overflow-x: auto;
+      border: 1px solid var(--rim);
+      border-radius: 8px;
+      line-height: 1.45;
+    }
+
+    ol.steps {
+      padding-left: 1.2em;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    ol.steps li {
+      margin-bottom: 8px;
+    }
+
+    ol.steps strong {
+      color: var(--text);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 32px;
+    }
+
+    footer a {
+      color: var(--blue);
+    }
+
+    .car-strip {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin: 24px 0 8px;
+      font-size: 28px;
+      filter: grayscale(0.2);
+    }
+
+    .warn {
+      border-left: 3px solid var(--yellow);
+      padding-left: 12px;
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="track-ring" aria-hidden="true"></div>
+  <div class="wrap">
+    <header>
+      <span class="badge">Desktop · Mac &amp; Windows</span>
+      <h1>Retro Rally</h1>
+      <p class="tagline">
+        Night-oval top-down racing. Create an account, tune your car, pick a chassis,
+        and beat eight opponents — or host a LAN race and replace AI with real players.
+      </p>
+      <div class="car-strip" aria-hidden="true">🏎️ 🚌 🏁</div>
+    </header>
+
+    <section id="download">
+      <h2>Download</h2>
+      <p>Get the latest build for your computer. No browser play — this is a desktop game.</p>
+      <div class="btn-row">
+        <a
+          class="btn btn-primary"
+          id="releases-link"
+          href="https://github.com/YOUR_USERNAME/retroRally/releases/latest"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Download latest release
+        </a>
+        <a
+          class="btn btn-secondary"
+          href="https://github.com/YOUR_USERNAME/retroRally"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View on GitHub
+        </a>
+      </div>
+      <p class="note">
+        Replace <code>YOUR_USERNAME</code> in the links above after you push this repo to GitHub,
+        or edit <code>docs/index.html</code> once and republish Pages.
+      </p>
+      <p class="warn">
+        Until you publish a release, use <strong>Run from source</strong> below.
+      </p>
+    </section>
+
+    <section>
+      <h2>Run from source</h2>
+      <p>Requirements: Python 3.10+ and pygame-ce.</p>
+      <pre>git clone https://github.com/YOUR_USERNAME/retroRally.git
+cd retroRally
+pip install pygame-ce
+python3 rally_game.py</pre>
+    </section>
+
+    <section>
+      <h2>What’s in the game</h2>
+      <ul class="features">
+        <li>Login or sign up (local accounts)</li>
+        <li>8-lap oval — first to the line wins</li>
+        <li>Tuning shop — speed upgrades &amp; difficulty presets</li>
+        <li>7 car chassis — grip, accel &amp; speed tradeoffs</li>
+        <li>Paint, decals &amp; setup sliders</li>
+        <li>Multiplayer tab — host on LAN, seek players, replace AI slots</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Controls</h2>
+      <ul class="features">
+        <li><strong>WASD</strong> — drive</li>
+        <li><strong>R</strong> — reset race</li>
+        <li><strong>Esc</strong> — back / quit</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Publish this page on GitHub Pages</h2>
+      <ol class="steps">
+        <li>Create a repo named <strong>retroRally</strong> on GitHub and push this project.</li>
+        <li>Go to <strong>Settings → Pages</strong>.</li>
+        <li>Under <strong>Build and deployment</strong>, set Source to <strong>Deploy from a branch</strong>.</li>
+        <li>Branch: <strong>main</strong> (or <strong>master</strong>), folder: <strong>/docs</strong>.</li>
+        <li>Save — your site will be at <code>https://YOUR_USERNAME.github.io/retroRally/</code></li>
+      </ol>
+    </section>
+
+    <footer>
+      <p>Retro Rally · Python + pygame-ce · Computer only</p>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var meta = document.querySelector('meta[name="github-repo"]');
+      var user = meta && meta.getAttribute('content');
+      if (user) {
+        var base = 'https://github.com/' + user + '/retroRally';
+        document.getElementById('releases-link').href = base + '/releases/latest';
+        document.querySelectorAll('a[href*="YOUR_USERNAME"]').forEach(function (a) {
+          a.href = a.href.replace(/YOUR_USERNAME/g, user);
+        });
+        document.querySelectorAll('pre').forEach(function (pre) {
+          pre.textContent = pre.textContent.replace(/YOUR_USERNAME/g, user);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
